@@ -633,7 +633,10 @@ var ObjectUtils = {
     },
 
     resolveFieldData(data, field) {
-        if (data == null) return null;
+        if (data == null)
+            return null;
+        else if (this.isFunction(field))
+            return field(data);
         return data[field];
         // if (data && Object.keys(data).length && field) {
         //     if (this.isFunction(field)) {
